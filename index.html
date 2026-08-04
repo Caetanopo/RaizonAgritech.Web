@@ -16,14 +16,11 @@
     <!-- Fonte substituta (Montserrat) enquanto a Glancyr não for carregada localmente -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome removido para usarmos SVGs inline, garantindo design exclusivo e carregamento rápido -->
+    <!-- FontAwesome para ícones complementares -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- AOS (Animate On Scroll) CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Three.js para o Background Interativo Premium -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <!-- Tailwind CSS (via CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,7 +40,6 @@
                         'rz-white': '#fafafa',
                     },
                     fontFamily: {
-                        // Glancyr deve ser adicionada fisicamente depois, Montserrat atua como fallback moderno
                         sans: ['Glancyr', 'Montserrat', 'sans-serif'],
                     }
                 }
@@ -59,27 +55,32 @@
             overflow-x: hidden;
         }
 
-        /* Container do Canvas Three.js */
-        #canvas-container {
+        /* Animação Cinematográfica para o Background (Ken Burns effect) */
+        @keyframes cinematicZoom {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-image: url('Images/banner_plantadeira.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: cinematicZoom 20s linear infinite alternate;
             z-index: 0;
-            background: linear-gradient(135deg, #000b1c 0%, #001833 100%);
-            /* Trava o pointer-events no mobile para permitir rolagem por toque */
-            pointer-events: none;
         }
 
-        /* Libera a interação do Canvas apenas no desktop */
-        @media (min-width: 768px) {
-            #canvas-container {
-                pointer-events: auto;
-            }
-        }
-
-        /* Garante que o texto fique acima do Canvas */
+        /* Garante que o texto fique acima do fundo */
         .hero-content {
             position: relative;
             z-index: 10;
@@ -151,7 +152,7 @@
 
         /* Navbar Glassmorphism */
         .navbar-glass {
-            background: rgba(0, 11, 28, 0.1);
+            background: rgba(0, 11, 28, 0.2);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.4s ease;
@@ -184,15 +185,6 @@
             .whatsapp-float:hover {
                 transform: scale(1.15) rotate(-5deg);
                 background-color: #128c7e;
-            }
-
-        /* SVG do logo da Raizon puro HTML */
-        .raizon-logo-svg path {
-            fill: #fafafa; /* rz-white */
-        }
-
-            .raizon-logo-svg path.orange-part {
-                fill: #ff6200; /* rz-orange */
             }
     </style>
 </head>
@@ -243,38 +235,39 @@
             </div>
         </div>
 
-        <section id="home" class="relative min-h-screen flex items-center pt-24 overflow-hidden">
-            <!-- Div para o Three.js Renderizar as Partículas Tecnológicas -->
-            <div id="canvas-container"></div>
+        <section id="home" class="relative min-h-screen flex items-center pt-24 overflow-hidden bg-rz-black">
 
-            <!-- Gradiente escuro extra sobre o canvas para garantir leitura do texto -->
-            <div class="absolute inset-0 bg-gradient-to-r from-rz-black/90 via-rz-dark/70 to-transparent z-[1]"></div>
+            <!-- Fundo Cinematográfico com a imagem da Plantadeira -->
+            <div class="hero-bg"></div>
+
+            <!-- Gradiente Escuro para garantir a leitura perfeita do texto por cima da imagem -->
+            <div class="absolute inset-0 bg-gradient-to-r from-rz-black/95 via-rz-black/70 to-transparent z-[1]"></div>
+            <!-- Camada extra de escurecimento para mobile onde a imagem inteira fica atrás do texto -->
+            <div class="absolute inset-0 bg-rz-black/40 sm:hidden z-[1]"></div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full hero-content">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-up" data-aos-duration="1200">
-                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rz-orange/10 border border-rz-orange/30 text-rz-orange text-xs sm:text-sm font-semibold mb-8 backdrop-blur-sm">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rz-orange/20 border border-rz-orange/40 text-rz-orange text-xs sm:text-sm font-semibold mb-8 backdrop-blur-md">
                             <span class="relative flex h-3 w-3">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rz-orange opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-rz-orange"></span>
                             </span>
                             Soluções de Alta Performance
                         </div>
-                        <!-- Tipografia ajustada (text-3xl base) para caber melhor nos celulares -->
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-rz-white leading-[1.1] mb-6">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-rz-white leading-[1.1] mb-6 drop-shadow-lg">
                             Inovação Agrícola <br />
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-rz-orange to-rz-light-orange">Elevando Resultados.</span>
                         </h1>
-                        <p class="text-rz-light-blue text-base sm:text-lg md:text-xl mb-10 max-w-xl leading-relaxed font-light">
+                        <p class="text-rz-light-blue text-base sm:text-lg md:text-xl mb-10 max-w-xl leading-relaxed font-light drop-shadow">
                             Equipamentos projetados para aumentar a produtividade e otimizar o seu plantio, entregando robustez e engenharia de ponta para o campo.
                         </p>
-                        <!-- Flex-col esticado 100% no mobile -->
                         <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 w-full sm:w-auto">
                             <a href="#produtos" class="w-full sm:w-auto bg-rz-orange text-rz-white px-8 py-4 rounded-md font-bold text-center uppercase tracking-wide hover:bg-rz-light-orange btn-glow flex items-center justify-center gap-3">
                                 Ver Produtos
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </a>
-                            <a href="#diferenciais" class="w-full sm:w-auto px-8 py-4 rounded-md font-bold text-center uppercase tracking-wide text-rz-white border border-rz-light-blue/30 hover:bg-rz-light-blue/10 transition-colors">
+                            <a href="#diferenciais" class="w-full sm:w-auto px-8 py-4 rounded-md font-bold text-center uppercase tracking-wide text-rz-white border border-rz-light-blue/40 bg-rz-black/30 backdrop-blur-sm hover:bg-rz-light-blue/10 transition-colors">
                                 Nossa Tecnologia
                             </a>
                         </div>
@@ -324,8 +317,6 @@
                     </div>
 
                     <div class="relative" data-aos="fade-left">
-                        <!-- Layout Gráfico Elegante substituindo imagem genérica -->
-                        <!-- ATUALIZAÇÃO AQUI: aspect-auto no mobile, aspect-square apenas no desktop -->
                         <div class="aspect-auto md:aspect-square rounded-2xl bg-rz-dark p-8 relative overflow-hidden shadow-2xl flex flex-col justify-between w-full max-w-sm mx-auto md:max-w-none">
                             <div class="absolute top-0 right-0 w-64 h-64 bg-rz-orange rounded-full filter blur-[100px] opacity-30 -mr-20 -mt-20"></div>
 
@@ -369,7 +360,6 @@
                     <!-- Produto 1: Caixas de Sementes Finas -->
                     <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
-                            <!-- Ícone Customizado SVG: Semente/Folha indicando sementes finas -->
                             <svg class="w-8 h-8 card-svg" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 2c-3.3 0-6 2.7-6 6 0 3.8 6 14 6 14s6-10.2 6-14c0-3.3-2.7-6-6-6zM12 9a2 2 0 100-4 2 2 0 000 4z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M10 20c-1-1-2-3-2-5" />
@@ -388,7 +378,6 @@
                     <!-- Produto 2: Caixas Suspensas -->
                     <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
                         <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
-                            <!-- Ícone Customizado SVG: Caixa / Estrutura -->
                             <svg class="w-8 h-8 card-svg" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 11v6" />
@@ -407,7 +396,6 @@
                     <!-- Produto 3: Controladores de Taxa Variável -->
                     <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
                         <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
-                            <!-- Ícone Customizado SVG: Gráfico/Controle -->
                             <svg class="w-8 h-8 card-svg" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
@@ -425,7 +413,6 @@
                     <!-- Produto 4: Módulos -->
                     <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
                         <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
-                            <!-- Ícone Customizado SVG: Circuito/Placa -->
                             <svg class="w-8 h-8 card-svg" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                             </svg>
@@ -443,7 +430,6 @@
                     <!-- Produto 5: Motores -->
                     <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="500">
                         <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
-                            <!-- Ícone Customizado SVG: Motor/Engrenagem -->
                             <svg class="w-8 h-8 card-svg" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -462,7 +448,6 @@
                     <!-- Produto 6: Sensores -->
                     <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="600">
                         <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
-                            <!-- Ícone Customizado SVG: Sinal/Sensor -->
                             <svg class="w-8 h-8 card-svg" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.28 7.28a2 2 0 112.828 2.828l-5.656 5.656a2 2 0 01-2.828-2.828l5.656-5.656z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -483,7 +468,6 @@
         </section>
 
         <footer id="contato" class="bg-rz-black pt-24 pb-12 border-t-[6px] border-rz-orange relative overflow-hidden">
-            <!-- Detalhe de fundo rodapé -->
             <div class="absolute right-0 bottom-0 opacity-5 pointer-events-none">
                 <svg width="400" height="400" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2L2 22h20L12 2zm0 6l6.5 13h-13L12 8z" />
@@ -493,7 +477,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
 
-                    <!-- Coluna 1: Marca (Ocupa 5 colunas no desktop) -->
+                    <!-- Coluna 1: Marca -->
                     <div class="md:col-span-5" data-aos="fade-right">
                         <div class="mb-6">
                             <img src="Images/logo_2_Transparente.png" alt="RAIZON Agritech Logo" class="h-12 md:h-20 w-auto opacity-90 hover:opacity-100 transition-opacity">
@@ -503,7 +487,6 @@
                         </p>
                         <div class="flex space-x-4">
                             <a href="https://www.instagram.com/raizonagritech/" target="_blank" aria-label="Instagram da Raizon" class="w-12 h-12 rounded-lg bg-rz-dark border border-rz-light-blue/20 flex items-center justify-center text-rz-white hover:bg-rz-orange hover:border-rz-orange transition-all shadow-lg hover:-translate-y-1">
-                                <!-- SVG Instagram -->
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
                                 </svg>
@@ -511,7 +494,7 @@
                         </div>
                     </div>
 
-                    <!-- Coluna 2: Navegação (Ocupa 3 colunas) -->
+                    <!-- Coluna 2: Navegação -->
                     <div class="md:col-span-3" data-aos="fade-up" data-aos-delay="100">
                         <h4 class="text-rz-white font-bold text-sm tracking-widest uppercase mb-6 flex items-center gap-2">
                             <span class="w-2 h-2 bg-rz-orange rounded-full"></span> Navegação
@@ -523,7 +506,7 @@
                         </ul>
                     </div>
 
-                    <!-- Coluna 3: Contatos Oficiais (Ocupa 4 colunas) -->
+                    <!-- Coluna 3: Contatos Oficiais -->
                     <div class="md:col-span-4" data-aos="fade-left" data-aos-delay="200">
                         <h4 class="text-rz-white font-bold text-sm tracking-widest uppercase mb-6 flex items-center gap-2">
                             <span class="w-2 h-2 bg-rz-orange rounded-full"></span> Contato Direto
@@ -531,7 +514,6 @@
                         <ul class="space-y-6">
                             <li class="flex items-start gap-4 group cursor-pointer" onclick="window.open('https://wa.me/5554991739188', '_blank')">
                                 <div class="w-10 h-10 rounded bg-rz-dark/50 flex items-center justify-center border border-rz-orange/20 group-hover:border-rz-orange transition-colors">
-                                    <!-- SVG WhatsApp -->
                                     <svg class="w-5 h-5 text-rz-orange" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                                     </svg>
@@ -543,7 +525,6 @@
                             </li>
                             <li class="flex items-start gap-4 group cursor-pointer" onclick="window.location.href='mailto:atendimento@raizon.com.br'">
                                 <div class="w-10 h-10 rounded bg-rz-dark/50 flex items-center justify-center border border-rz-orange/20 group-hover:border-rz-orange transition-colors">
-                                    <!-- SVG Email -->
                                     <svg class="w-5 h-5 text-rz-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                                 </div>
                                 <div>
@@ -553,7 +534,6 @@
                             </li>
                             <li class="flex items-start gap-4 group">
                                 <div class="w-10 h-10 rounded bg-rz-dark/50 flex items-center justify-center border border-rz-orange/20 group-hover:border-rz-orange transition-colors">
-                                    <!-- SVG Marker -->
                                     <svg class="w-5 h-5 text-rz-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                 </div>
                                 <div>
@@ -578,13 +558,12 @@
         </footer>
 
     </main>
-    <!-- FIM DO WRAPPER MESTRE -->
-    <!-- Botão Flutuante do WhatsApp (Fica fora do wrapper principal para não ser cortado) -->
+
+    <!-- Botão Flutuante do WhatsApp -->
     <a href="https://wa.me/5554991739188?text=Olá,%20acessei%20o%20site%20da%20Raizon%20e%20gostaria%20de%20um%20orçamento." class="whatsapp-float group" target="_blank" rel="noopener noreferrer" aria-label="Solicitar Orçamento no WhatsApp">
         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-        <!-- Tooltip oculto no mobile para evitar overflow horizontal e bugs de touch -->
         <span class="hidden md:block absolute right-20 bg-rz-dark text-rz-white text-sm py-2 px-4 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl border border-rz-orange/30">
             Falar com um Especialista
         </span>
@@ -643,154 +622,6 @@
         mobileLinks.forEach(link => {
             link.addEventListener('click', toggleMenu);
         });
-
-        // 4. Three.js - Background Tecnológico Premium (Efeito Plexus / Rede de Conexões)
-        function initThreeJS() {
-            const container = document.getElementById('canvas-container');
-            const scene = new THREE.Scene();
-
-            // Câmera
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 40;
-
-            // Renderizador
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            container.appendChild(renderer.domElement);
-
-            // Criar a Rede (Plexus)
-            const particlesCount = window.innerWidth < 768 ? 120 : 250; // Menos partículas no celular para performance
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(particlesCount * 3);
-            const velocities = [];
-
-            // Cores da marca
-            const colorOrange = new THREE.Color('#ff6200');
-
-            for (let i = 0; i < particlesCount; i++) {
-                // Espalha as partículas pelo espaço
-                positions[i * 3] = (Math.random() - 0.5) * 120; // x
-                positions[i * 3 + 1] = (Math.random() - 0.5) * 120; // y
-                positions[i * 3 + 2] = (Math.random() - 0.5) * 60;  // z
-
-                // Velocidade de movimento de cada ponto
-                velocities.push({
-                    x: (Math.random() - 0.5) * 0.12,
-                    y: (Math.random() - 0.5) * 0.12,
-                    z: (Math.random() - 0.5) * 0.12
-                });
-            }
-
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-            // Material dos Pontos (Nós)
-            const particlesMaterial = new THREE.PointsMaterial({
-                color: colorOrange,
-                size: 0.4,
-                transparent: true,
-                opacity: 0.9,
-                blending: THREE.AdditiveBlending
-            });
-            const particlesMesh = new THREE.Points(geometry, particlesMaterial);
-            scene.add(particlesMesh);
-
-            // Material das Linhas (Conexões)
-            const lineMaterial = new THREE.LineBasicMaterial({
-                color: colorOrange,
-                transparent: true,
-                opacity: 0.15, // Bem sutil para não poluir
-                blending: THREE.AdditiveBlending
-            });
-            const lineGeometry = new THREE.BufferGeometry();
-
-            // Prepara a memória para receber as linhas dinâmicas
-            const linePositions = new Float32Array(particlesCount * particlesCount * 3);
-            lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
-            const linesMesh = new THREE.LineSegments(lineGeometry, lineMaterial);
-            scene.add(linesMesh);
-
-            // Interação com o mouse (Girar o cenário)
-            let mouseX = 0;
-            let mouseY = 0;
-            let targetX = 0;
-            let targetY = 0;
-            const windowHalfX = window.innerWidth / 2;
-            const windowHalfY = window.innerHeight / 2;
-
-            if (window.innerWidth > 768) {
-                document.addEventListener('mousemove', (event) => {
-                    mouseX = (event.clientX - windowHalfX) * 0.05;
-                    mouseY = (event.clientY - windowHalfY) * 0.05;
-                });
-            }
-
-            // Loop de Animação
-            function animate() {
-                requestAnimationFrame(animate);
-
-                // Gira a rede toda baseada na posição do mouse
-                targetX = mouseX * 0.2;
-                targetY = mouseY * 0.2;
-                scene.rotation.y += 0.02 * (targetX - scene.rotation.y);
-                scene.rotation.x += 0.02 * (targetY - scene.rotation.x);
-
-                const pos = particlesMesh.geometry.attributes.position.array;
-                let vertexIndex = 0;
-
-                // Move os pontos e calcula as distâncias
-                for (let i = 0; i < particlesCount; i++) {
-                    pos[i * 3] += velocities[i].x;
-                    pos[i * 3 + 1] += velocities[i].y;
-                    pos[i * 3 + 2] += velocities[i].z;
-
-                    // Limites (Faz as bolinhas quicarem nas bordas invisíveis)
-                    if (pos[i * 3] > 60 || pos[i * 3] < -60) velocities[i].x *= -1;
-                    if (pos[i * 3 + 1] > 60 || pos[i * 3 + 1] < -60) velocities[i].y *= -1;
-                    if (pos[i * 3 + 2] > 30 || pos[i * 3 + 2] < -30) velocities[i].z *= -1;
-
-                    // Verifica a distância entre este ponto e os outros
-                    for (let j = i + 1; j < particlesCount; j++) {
-                        const dx = pos[i * 3] - pos[j * 3];
-                        const dy = pos[i * 3 + 1] - pos[j * 3 + 1];
-                        const dz = pos[i * 3 + 2] - pos[j * 3 + 2];
-                        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-                        // Se estiverem próximos (< 14), desenha uma linha conectando!
-                        if (dist < 14) {
-                            linePositions[vertexIndex++] = pos[i * 3];
-                            linePositions[vertexIndex++] = pos[i * 3 + 1];
-                            linePositions[vertexIndex++] = pos[i * 3 + 2];
-
-                            linePositions[vertexIndex++] = pos[j * 3];
-                            linePositions[vertexIndex++] = pos[j * 3 + 1];
-                            linePositions[vertexIndex++] = pos[j * 3 + 2];
-                        }
-                    }
-                }
-
-                // Avisa o renderizador que atualizamos posições
-                particlesMesh.geometry.attributes.position.needsUpdate = true;
-                linesMesh.geometry.setDrawRange(0, vertexIndex / 3);
-                linesMesh.geometry.attributes.position.needsUpdate = true;
-
-                renderer.render(scene, camera);
-            }
-
-            // Responsividade da Câmera 3D
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-
-            animate();
-        }
-
-        // Inicia o 3D assim que a janela carrega
-        window.onload = function () {
-            initThreeJS();
-        };
     </script>
 </body>
 </html>
