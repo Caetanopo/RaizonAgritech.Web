@@ -202,11 +202,32 @@
                         <img src="Images/logo_2_Transparente.png" alt="RAIZON Agritech Logo" class="h-12 sm:h-16 md:h-20 w-auto max-w-[60vw] md:max-w-none object-contain drop-shadow-xl">
                     </div>
 
-                    <!-- Links Desktop -->
-                    <div class="hidden lg:flex space-x-10 items-center">
+                    <!-- Links Desktop com Menu Suspenso de Soluções -->
+                    <div class="hidden lg:flex space-x-10 items-center h-full">
                         <a href="#home" class="text-rz-white/90 hover:text-rz-orange transition-colors font-medium text-sm tracking-wide uppercase">Início</a>
                         <a href="#diferenciais" class="text-rz-white/90 hover:text-rz-orange transition-colors font-medium text-sm tracking-wide uppercase">Diferenciais</a>
-                        <a href="#produtos" class="text-rz-white/90 hover:text-rz-orange transition-colors font-medium text-sm tracking-wide uppercase">Produtos</a>
+
+                        <!-- Dropdown de Soluções -->
+                        <div class="relative group h-full flex items-center">
+                            <a href="#solucoes" class="text-rz-white/90 hover:text-rz-orange transition-colors font-medium text-sm tracking-wide uppercase flex items-center gap-1">
+                                Soluções
+                                <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </a>
+
+                            <!-- Menu Suspenso -->
+                            <div class="absolute top-[80px] left-1/2 transform -translate-x-1/2 w-64 bg-rz-black/95 backdrop-blur-xl border border-rz-orange/20 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col py-3 z-50">
+                                <a href="#solucoes" class="px-5 py-2.5 text-rz-light-blue hover:text-rz-orange hover:bg-white/5 text-sm font-medium transition-colors border-b border-white/5">Caixas de Sementes Finas</a>
+                                <a href="#solucoes" class="px-5 py-2.5 text-rz-light-blue hover:text-rz-orange hover:bg-white/5 text-sm font-medium transition-colors border-b border-white/5">Caixas Suspensas</a>
+                                <a href="#solucoes" class="px-5 py-2.5 text-rz-light-blue hover:text-rz-orange hover:bg-white/5 text-sm font-medium transition-colors border-b border-white/5">Taxa Variável</a>
+                                <a href="#solucoes" class="px-5 py-2.5 text-rz-light-blue hover:text-rz-orange hover:bg-white/5 text-sm font-medium transition-colors border-b border-white/5">Taxa Fixa</a>
+                                <a href="#solucoes" class="px-5 py-2.5 text-rz-light-blue hover:text-rz-orange hover:bg-white/5 text-sm font-medium transition-colors border-b border-white/5">Módulos Eletrônicos</a>
+                                <a href="#solucoes" class="px-5 py-2.5 text-rz-light-blue hover:text-rz-orange hover:bg-white/5 text-sm font-medium transition-colors border-b border-white/5">Telas e Monitores</a>
+                                <a href="#solucoes" class="px-5 py-2.5 text-rz-light-blue hover:text-rz-orange hover:bg-white/5 text-sm font-medium transition-colors border-b border-white/5">Motores</a>
+                                <a href="#solucoes" class="px-5 py-2.5 text-rz-light-blue hover:text-rz-orange hover:bg-white/5 text-sm font-medium transition-colors border-b border-white/5">Sensores</a>
+                                <a href="#solucoes" class="px-5 py-2.5 text-rz-light-blue hover:text-rz-orange hover:bg-white/5 text-sm font-medium transition-colors">Chicotes Elétricos</a>
+                            </div>
+                        </div>
+
                         <a href="#contato" class="bg-rz-orange text-rz-white px-8 py-3 rounded-md font-bold text-sm tracking-wide uppercase hover:bg-rz-light-orange btn-glow">Fale Conosco</a>
                     </div>
 
@@ -230,7 +251,7 @@
             <div class="flex flex-col items-center justify-center h-[calc(100vh-6rem)] space-y-8">
                 <a href="#home" class="mobile-link text-2xl font-bold text-rz-white hover:text-rz-orange transition-colors uppercase tracking-widest">Início</a>
                 <a href="#diferenciais" class="mobile-link text-2xl font-bold text-rz-white hover:text-rz-orange transition-colors uppercase tracking-widest">Diferenciais</a>
-                <a href="#produtos" class="mobile-link text-2xl font-bold text-rz-white hover:text-rz-orange transition-colors uppercase tracking-widest">Produtos</a>
+                <a href="#solucoes" class="mobile-link text-2xl font-bold text-rz-white hover:text-rz-orange transition-colors uppercase tracking-widest">Soluções</a>
                 <a href="#contato" class="mobile-link bg-rz-orange text-rz-white px-10 py-4 rounded-md font-bold text-lg tracking-wide uppercase hover:bg-rz-light-orange btn-glow mt-4">Fale Conosco</a>
             </div>
         </div>
@@ -263,8 +284,8 @@
                             Equipamentos projetados para aumentar a produtividade e otimizar o seu plantio, entregando robustez e engenharia de ponta para o campo.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 w-full sm:w-auto">
-                            <a href="#produtos" class="w-full sm:w-auto bg-rz-orange text-rz-white px-8 py-4 rounded-md font-bold text-center uppercase tracking-wide hover:bg-rz-light-orange btn-glow flex items-center justify-center gap-3">
-                                Ver Produtos
+                            <a href="#solucoes" class="w-full sm:w-auto bg-rz-orange text-rz-white px-8 py-4 rounded-md font-bold text-center uppercase tracking-wide hover:bg-rz-light-orange btn-glow flex items-center justify-center gap-3">
+                                Ver Soluções
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </a>
                             <a href="#diferenciais" class="w-full sm:w-auto px-8 py-4 rounded-md font-bold text-center uppercase tracking-wide text-rz-white border border-rz-light-blue/40 bg-rz-black/30 backdrop-blur-sm hover:bg-rz-light-blue/10 transition-colors">
@@ -275,7 +296,7 @@
                 </div>
             </div>
 
-            <!-- Elemento decorativo de Scroll Down (Oculto no mobile para limpar a tela) -->
+            <!-- Elemento decorativo de Scroll Down -->
             <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce hidden md:flex flex-col items-center opacity-70">
                 <svg class="w-6 h-6 text-rz-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
             </div>
@@ -288,7 +309,7 @@
                         <h2 class="text-3xl md:text-4xl font-bold text-rz-dark mb-4 leading-tight">Engenharia de Ponta Aplicada ao Plantio</h2>
                         <div class="brand-line mb-8"></div>
                         <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                            A RAIZON Agritech nasce com o DNA da inovação, focada em solucionar as demandas críticas do produtor rural através de eletrônica embarcada e automação de nível internacional.
+                            A RAIZON Agritech tem em suas veias o DNA da inovação, focada em solucionar as demandas críticas do produtor rural através de eletrônica embarcada e automação de nível internacional.
                         </p>
                         <p class="text-gray-600 text-lg mb-8 leading-relaxed">
                             Nossas soluções não apenas substituem peças, elas transformam a máquina agrícola em um sistema inteligente, maximizando a eficiência de cada semente no solo.
@@ -344,14 +365,15 @@
             </div>
         </section>
 
-        <section id="produtos" class="py-24 bg-gray-50 border-t border-gray-200">
+        <!-- Seção alterada de ID produtos para ID solucoes -->
+        <section id="solucoes" class="py-24 bg-gray-50 border-t border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16" data-aos="fade-up">
                     <span class="text-rz-orange font-bold uppercase tracking-widest text-sm mb-2 block">Catálogo Completo</span>
                     <h2 class="text-3xl md:text-5xl font-extrabold text-rz-dark mb-4">Soluções Raizon</h2>
                     <div class="brand-line mx-auto"></div>
                     <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg px-2">
-                        Conheça nossa linha de produtos pensados para elevar o patamar da sua produtividade no campo, otimizando cada estágio do seu plantio.
+                        Conheça nossa linha de soluções pensadas para elevar o patamar da sua produtividade no campo, otimizando cada estágio do seu plantio.
                     </p>
                 </div>
 
@@ -360,9 +382,13 @@
                     <!-- Produto 1: Caixas de Sementes Finas -->
                     <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
-                            <svg class="w-8 h-8 card-svg" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2c-3.3 0-6 2.7-6 6 0 3.8 6 14 6 14s6-10.2 6-14c0-3.3-2.7-6-6-6zM12 9a2 2 0 100-4 2 2 0 000 4z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20c-1-1-2-3-2-5" />
+                            <svg class="w-8 h-8 card-svg" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                                <path d="M6 4h12l-1 8H7L6 4z" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M5.5 4h13" stroke-linecap="round" />
+                                <path d="M10 12v3l2 2 2-2v-3" stroke-linecap="round" stroke-linejoin="round" />
+                                <circle cx="12" cy="19" r="0.7" fill="currentColor" />
+                                <circle cx="12" cy="21.2" r="0.7" fill="currentColor" />
+                                <path d="M9 7h6M9.5 9h5" stroke-linecap="round" />
                             </svg>
                         </div>
                         <h3 class="text-2xl font-bold text-rz-dark mb-3">Caixas de Sementes Finas</h3>
@@ -410,7 +436,24 @@
                         </a>
                     </div>
 
-                    <!-- Produto 4: Módulos -->
+                    <!-- Produto 4: Taxa Fixa -->
+                    <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="700">
+                        <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
+                            <svg class="w-8 h-8 card-svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-rz-dark mb-3">Taxa Fixa</h3>
+                        <p class="text-gray-500 mb-8 text-sm leading-relaxed">
+                            Sistemas eletromecânicos confiáveis para quem busca padronização e constância absoluta na dosagem do plantio.
+                        </p>
+                        <a href="#contato" class="text-rz-dark font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:text-rz-orange transition-colors">
+                            Saber mais
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Produto 5: Módulos -->
                     <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
                         <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
                             <svg class="w-8 h-8 card-svg" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
@@ -427,7 +470,24 @@
                         </a>
                     </div>
 
-                    <!-- Produto 5: Motores -->
+                    <!-- Produto 6: Telas -->
+                    <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="800">
+                        <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
+                            <svg class="w-8 h-8 card-svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-rz-dark mb-3">Telas e Monitores</h3>
+                        <p class="text-gray-500 mb-8 text-sm leading-relaxed">
+                            Monitores de plantio intuitivos e robustos. Interface de alta visibilidade para controle total da operação da cabine.
+                        </p>
+                        <a href="#contato" class="text-rz-dark font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:text-rz-orange transition-colors">
+                            Saber mais
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Produto 7: Motores -->
                     <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="500">
                         <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
                             <svg class="w-8 h-8 card-svg" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
@@ -445,17 +505,35 @@
                         </a>
                     </div>
 
-                    <!-- Produto 6: Sensores -->
+                    <!-- Produto 8: Sensores -->
                     <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="600">
                         <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
-                            <svg class="w-8 h-8 card-svg" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.28 7.28a2 2 0 112.828 2.828l-5.656 5.656a2 2 0 01-2.828-2.828l5.656-5.656z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            <svg class="w-8 h-8 card-svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="2" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v2M12 18v2M4 12h2M18 12h2" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7.05 7.05l1.41 1.41M15.54 15.54l1.41 1.41M16.95 7.05l-1.41 1.41M8.46 15.54l-1.41 1.41" />
                             </svg>
                         </div>
                         <h3 class="text-2xl font-bold text-rz-dark mb-3">Sensores</h3>
                         <p class="text-gray-500 mb-8 text-sm leading-relaxed">
                             Leitura instantânea de ambiente e fluxo. Feedback milissegundo a milissegundo para garantir a exatidão da taxa variável.
+                        </p>
+                        <a href="#contato" class="text-rz-dark font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:text-rz-orange transition-colors">
+                            Saber mais
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Produto 9: Chicotes elétricos -->
+                    <div class="product-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="900">
+                        <div class="w-16 h-16 mb-6 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
+                            <svg class="w-8 h-8 card-svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-rz-dark mb-3">Chicotes Elétricos</h3>
+                        <p class="text-gray-500 mb-8 text-sm leading-relaxed">
+                            Cabeamento de alta resistência com conectores blindados, garantindo a integridade do sinal em qualquer terreno.
                         </p>
                         <a href="#contato" class="text-rz-dark font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:text-rz-orange transition-colors">
                             Saber mais
@@ -502,7 +580,7 @@
                         <ul class="space-y-4 font-light">
                             <li><a href="#home" class="text-rz-light-blue hover:text-rz-orange hover:pl-2 transition-all block">Início</a></li>
                             <li><a href="#diferenciais" class="text-rz-light-blue hover:text-rz-orange hover:pl-2 transition-all block">Sobre a Tecnologia</a></li>
-                            <li><a href="#produtos" class="text-rz-light-blue hover:text-rz-orange hover:pl-2 transition-all block">Catálogo de Produtos</a></li>
+                            <li><a href="#solucoes" class="text-rz-light-blue hover:text-rz-orange hover:pl-2 transition-all block">Catálogo de Soluções</a></li>
                         </ul>
                     </div>
 
@@ -512,7 +590,7 @@
                             <span class="w-2 h-2 bg-rz-orange rounded-full"></span> Contato Direto
                         </h4>
                         <ul class="space-y-6">
-                            <li class="flex items-start gap-4 group cursor-pointer" onclick="window.open('https://wa.me/5554991739188', '_blank')">
+                            <li class="flex items-start gap-4 group cursor-pointer" onclick="window.open('https://wa.me/5554999847460', '_blank')">
                                 <div class="w-10 h-10 rounded bg-rz-dark/50 flex items-center justify-center border border-rz-orange/20 group-hover:border-rz-orange transition-colors">
                                     <svg class="w-5 h-5 text-rz-orange" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -520,16 +598,16 @@
                                 </div>
                                 <div>
                                     <span class="block text-rz-light-blue text-xs uppercase tracking-wider mb-1">Comercial / WhatsApp</span>
-                                    <span class="text-rz-white font-bold group-hover:text-rz-orange transition-colors">54 99173-9188</span>
+                                    <span class="text-rz-white font-bold group-hover:text-rz-orange transition-colors">54 99984-7460</span>
                                 </div>
                             </li>
-                            <li class="flex items-start gap-4 group cursor-pointer" onclick="window.location.href='mailto:atendimento@raizon.com.br'">
+                            <li class="flex items-start gap-4 group cursor-pointer" onclick="window.location.href='mailto:atendimento@raizon.ind.br'">
                                 <div class="w-10 h-10 rounded bg-rz-dark/50 flex items-center justify-center border border-rz-orange/20 group-hover:border-rz-orange transition-colors">
                                     <svg class="w-5 h-5 text-rz-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                                 </div>
                                 <div>
                                     <span class="block text-rz-light-blue text-xs uppercase tracking-wider mb-1">E-mail corporativo</span>
-                                    <span class="text-rz-white font-bold group-hover:text-rz-orange transition-colors">atendimento@raizon.com.br</span>
+                                    <span class="text-rz-white font-bold group-hover:text-rz-orange transition-colors">atendimento@raizon.ind.br</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-4 group">
@@ -538,7 +616,7 @@
                                 </div>
                                 <div>
                                     <span class="block text-rz-light-blue text-xs uppercase tracking-wider mb-1">Sede Administrativa</span>
-                                    <span class="text-rz-white font-medium text-sm leading-relaxed">Rua Lorem Ipsum, 0000 - Centro<br>Passo Fundo / RS</span>
+                                    <span class="text-rz-white font-medium text-sm leading-relaxed">Rua Servílio Donini 382 - Bairro Integração<br>Passo Fundo / RS<br>CEP 99.034-039</span>
                                 </div>
                             </li>
                         </ul>
@@ -560,7 +638,7 @@
     </main>
 
     <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/5554991739188?text=Olá,%20acessei%20o%20site%20da%20Raizon%20e%20gostaria%20de%20um%20orçamento." class="whatsapp-float group" target="_blank" rel="noopener noreferrer" aria-label="Solicitar Orçamento no WhatsApp">
+    <a href="https://wa.me/5554999847460?text=Olá,%20acessei%20o%20site%20da%20Raizon%20e%20gostaria%20de%20um%20orçamento." class="whatsapp-float group" target="_blank" rel="noopener noreferrer" aria-label="Solicitar Orçamento no WhatsApp">
         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
